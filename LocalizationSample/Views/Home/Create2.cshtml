@@ -1,0 +1,35 @@
+﻿@model Create2Vm
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<form asp-controller="Home" asp-action="Create" method="post" asp-antiforgery="true" class="">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label asp-for="Name" class="control-label col-md-3 col-sm-3 col-xs-12"></label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                    <input asp-for="Name" type="text" class="form-control" placeholder="@localizer["Name"]" />
+                    <span asp-validation-for="Name" class="text-danger text-small"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="ln_solid"></div>
+            <div class="form-group">
+                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                    <button type="submit" class="btn btn-success btn-sm">
+                        @localizer["Kaydet"]
+                        <i class="fa fa-save"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
